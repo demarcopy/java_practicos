@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class ejemplo {
     public static void main(String[] args) {
-        int[] datos = cargarArray(5);
+        int[][] datos = cargarArray(5);
         for (int i = 0; i < datos.length; i++) {
             System.out.println(datos[i]);
         }
     }
-    public static int[] cargarArray(int cantidad){
+    public static int[] cargarArray(int cantidad, int[][] datos){
         Scanner input = new Scanner(System.in);
         
         int[] valores = new int[cantidad];

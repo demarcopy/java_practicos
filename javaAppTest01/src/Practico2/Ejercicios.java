@@ -1,23 +1,22 @@
-
 package Practico2;
 import java.util.Scanner;
 
-/*
-1) Ingresar un array de valores positivos. Mostrar como histograma los datos del array. Ej: (5,4,1,2)
-desplegaría:
-5 *****
-4 ****
-1 *
-2 **
-*/
-
-public class Ejercicio1 {
+public class Ejercicios {
 
     public static void main(String[] args){
     ej5();
     }
 
     public static void ej1(){
+        /*
+        1) Ingresar un array de valores positivos. Mostrar como histograma los datos del array. Ej: (5,4,1,2)
+        desplegaría:
+        5 *****
+        4 ****
+        1 *
+        2 **
+        */
+        
         Scanner in = new Scanner(System.in);
            
         int[] lista1 = new int[5];
@@ -87,12 +86,10 @@ ordenados. */
         }
     }
     
-
     public static void ej4(){
         System.out.println("hola");
     }
     
-
     public static void ej5(){
     /*Dados dos arrays ordenados, generar un tercer array con el resultado de la intercalación ordenada.
 Ej: [10, 20, 50], [1, 2, 20, 24, 80], resultado: [1, 2, 10, 20, 20, 24, 50, 80]  */
@@ -107,11 +104,23 @@ Ej: [10, 20, 50], [1, 2, 20, 24, 80], resultado: [1, 2, 10, 20, 20, 24, 50, 80] 
         int ite2 = 0;
         
         for(int i = 0; i < listaResultado.length; i++){
-            if(lista1[ite1] < lista2[ite2]){
-                listaResultado[i] = lista1[ite1];
+            if(ite1 < lista1.length && ite2 < lista2.length){
+                if(lista1[ite1] < lista2[ite2]){
+                    listaResultado[i] = lista1[ite1];
+                    ite1++;
+                }else{
+                    listaResultado[i] = lista2[ite2];
+                    ite2++;
+                }
             }else{
-                listaResultado[i] = lista2[ite2];
-            }
+                if(ite1 < lista1.length){
+                    listaResultado[i] = lista1[ite1];
+                }
+                if(ite2 < lista2.length){
+                    listaResultado[i] = lista2[ite2];
+                }
+            
+            }       
         }
         System.out.println("Array cargado");
         
@@ -119,17 +128,6 @@ Ej: [10, 20, 50], [1, 2, 20, 24, 80], resultado: [1, 2, 10, 20, 20, 24, 50, 80] 
             System.out.print(listaResultado[j] + " ");
         }
     }
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
 
 
