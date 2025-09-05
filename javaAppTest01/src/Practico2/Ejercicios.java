@@ -1,10 +1,14 @@
 package Practico2;
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Ejercicios {
 
     public static void main(String[] args){
-    ej5();
+    
+        int[]array1 = new int[10];
+        
+        ej6(array1);
     }
 
     public static void ej1(){
@@ -128,6 +132,94 @@ Ej: [10, 20, 50], [1, 2, 20, 24, 80], resultado: [1, 2, 10, 20, 20, 24, 50, 80] 
             System.out.print(listaResultado[j] + " ");
         }
     }
+    
+    
+    public static boolean numEnArray(int num, int[]arrayNum){
+    boolean existe = false;
+    for(int i = 0; i < arrayNum.length && !existe; i++){
+        if( arrayNum[i] == num ){
+            existe = true;
+        }
+
+    }
+    return existe;
+    }
+    
+    
+    
+    public static void ej6(int[]arrayParaCargar){
+        for(int i = 0; i < 10 ; i ++){
+            int numero = (int)(Math.random()*20+1);
+            if(!numEnArray(numero,arrayParaCargar)){
+                arrayParaCargar[i] = numero;
+            }
+        }
+        System.out.print(Arrays.toString(arrayParaCargar));
+    
+    }
+    
+    
+
+
+    public static void ej7(){
+    /*
+     7) “En la casa de Pinocho...todos cuentan hasta ocho:...pinuno, pindos, pintres, pincuatro, pincinco, 
+    pinseis, pinsiete, pinocho!.” Este tradicional cantito es el que usan los niños para elegir al azar uno de 
+    ellos en un grupo. Los niños se disponen en círculo y el responsable del canto, ubicado en el centro 
+    del círculo, va señalando consecutivamente a cada uno diciendo en voz alta una palabra del canto. 
+    Al que le toca la última palabra de la canción es el elegido. Se ingresará desde teclado una lista de 
+    nombres (entre 5 y 30), luego que se termina la lista se indica cuál va a cantar al centro y desde cuál 
+    se comienza. El programa debe informar a quién se elegirá. 
+    Ejemplo: 
+    Se ingresan: Nicolás Andrés Mariana Inés Marcelo Matías Mauricio Daniel. Mariana cantará y se 
+    comienza con Matías. El programa debe indicar que el elegido será Daniel. 
+        */
+    Scanner input = new Scanner(System.in);
+    
+    System.out.println("Ingrese la cantidad de nombres que juegan (Entre 5 y 30):");
+    int cantidadNombres = input.nextInt();
+    String [] nombresIngresados = new String[cantidadNombres];
+    
+    for(int i = 0; i < nombresIngresados.length; i ++){
+        System.out.println("Ingrese el nombre numero:"+ i);
+        input.next();
+        nombresIngresados[i] = input.nextLine();
+    }
+    
+    System.out.println("Ingrese el cantante");
+    String cantante = input.nextLine();
+    
+    System.out.println("Ingrese el nombre del inicio");
+
+    String inicio = input.nextLine();
+    
+    
+    int iterador = 0;
+    
+    /*
+    for(int i = 0; i < nombresIngresados.length; i ++){
+        System.out.println(nombresIngresados[i] + " ");
+    }
+    */
+    
+    
+    String [] listaNombres = {"Nicolas" ,"Andrés", "Mariana", "Inés", "Marcelo", "Matías", "Mauricio", "Daniel", "Mariana", "Matías"};
+    /*
+    for(int i = 5; i < listaNombres.length; i++){
+        if(i+1 == listaNombres.length){
+            i = 0;
+        }
+        
+        for(int j = 0; j < 8; j++){
+        
+        }
+        
+    }
+    */
+    
+    
+    }
+
 }
 
 

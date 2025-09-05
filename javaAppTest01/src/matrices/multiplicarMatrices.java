@@ -1,5 +1,5 @@
 
-package ejerciciosClase;
+package matrices;
 
 public class multiplicarMatrices {
     public static void main(String[] args){

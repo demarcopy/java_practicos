@@ -1,5 +1,5 @@
 
-package ejerciciosClase;
+package matrices;
 
 public class dobleMatrizConCero {
     public static void main(String[] args){

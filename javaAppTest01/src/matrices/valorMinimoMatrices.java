@@ -1,5 +1,5 @@
 
-package ejerciciosClase;
+package matrices;
 
 public class valorMinimoMatrices {
     public static void main(String[] args){
