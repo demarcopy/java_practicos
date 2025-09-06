@@ -6,22 +6,13 @@ public class Ejercicios {
 
     public static void main(String[] args){
     
-     int[] arrayEj = {18,55,16,17};
-     System.out.print(ej9(arrayEj));
+     int[] arrayEj = {6, 1, 5, 4, 3, 2, 9, 8, 7};
+     System.out.print(ej10(arrayEj));
 
      
     }
 
-    public static void ej1(){
-        /*
-        1) Ingresar un array de valores positivos. Mostrar como histograma los datos del array. Ej: (5,4,1,2)
-        desplegaría:
-        5 *****
-        4 ****
-        1 *
-        2 **
-        */
-        
+    public static void ej1(){   
         Scanner in = new Scanner(System.in);
            
         int[] lista1 = new int[5];
@@ -58,8 +49,6 @@ public class Ejercicios {
     }
     
     public static void ej3(){
-    /* 3) Leer 10 números. Al final indicar si están ordenados ascendentemente, descendentemente o no
-ordenados. */
         Scanner in = new Scanner(System.in);
         int[] lista1 = new int[5];
         boolean ordenadoAsc = true;
@@ -241,13 +230,38 @@ Ej: [10, 20, 50], [1, 2, 20, 24, 80], resultado: [1, 2, 10, 20, 20, 24, 50, 80] 
     return puede;
     } 
     
-    public static boolean ej9(int[] tarjetas){
-    
+    public static boolean amigasSinSort(int[] tarjetas) {
     boolean puede = false;
-        
-        
+    for (int i = 0; i < tarjetas.length - 2 && !puede; i++) {
+        for (int j = i + 1; j < tarjetas.length - 1 && !puede; j++) {
+            for (int k = j + 1; k < tarjetas.length && !puede; k++) {
+                if (tarjetas[i] != tarjetas[j] && tarjetas[i] != tarjetas[k] && tarjetas[j] != tarjetas[k]) {
+                    if ((Math.abs(tarjetas[i]-tarjetas[j]) == 1 || Math.abs(tarjetas[i]-tarjetas[k]) == 1)
+                            && (Math.abs(tarjetas[j]-tarjetas[i]) == 1 || Math.abs(tarjetas[j]-tarjetas[k]) == 1)
+                            && (Math.abs(tarjetas[k]-tarjetas[i]) == 1 || Math.abs(tarjetas[k]-tarjetas[j]) == 1)) {
+                    puede = true;
+                    }
+                }
+            }
+        }
+    }
     return puede;
     }
+
+    public static int ej10(int[] peces){
+    int cantidad = 0;
+    int maximo = 0;
+    for (int i = 0; i < peces.length-1; i++) {
+        if (peces[i] > peces[i+1]){
+            cantidad++;
+            maximo = Math.max(maximo, cantidad);
+        }else {
+        cantidad=0;
+        }
+    }
+        return maximo;
+    }
+         
 }
 
 

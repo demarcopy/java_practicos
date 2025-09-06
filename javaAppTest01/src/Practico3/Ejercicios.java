@@ -12,7 +12,7 @@ public class Ejercicios {
         
     }
     
-    public static int promedioMaterias(){
+    public static int ej1(){
     int[][] resultadosMaterias = new int[5][6];
     int suma = 0;
     
@@ -26,17 +26,17 @@ public class Ejercicios {
     return suma / 30;
     }
     
-    public static void sumaColumnas(int[][]matrizCuadrada){
+    public static void ej2(int[][]matrizCuadrada){
     
         
-    for(int j = 0; j < matrizCuadrada[0].length; j++){ //Columnas
-        for(int i = 0; i < matrizCuadrada[i]; i++){  //Filas
-       
+        for(int j = 0; j < matrizCuadrada[0].length; j++){ //Columnas
+            for(int i = 0; i < matrizCuadrada[i]; i++){  //Filas
+
+            }
+
         }
-        
-    }
-        
-    }
+
+        }
 
     
     
