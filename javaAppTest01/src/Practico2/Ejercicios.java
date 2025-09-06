@@ -6,9 +6,10 @@ public class Ejercicios {
 
     public static void main(String[] args){
     
-        int[]array1 = new int[10];
-        
-        ej6(array1);
+     int[] arrayEj = {18,55,16,17};
+     System.out.print(ej9(arrayEj));
+
+     
     }
 
     public static void ej1(){
@@ -133,7 +134,6 @@ Ej: [10, 20, 50], [1, 2, 20, 24, 80], resultado: [1, 2, 10, 20, 20, 24, 50, 80] 
         }
     }
     
-    
     public static boolean numEnArray(int num, int[]arrayNum){
     boolean existe = false;
     for(int i = 0; i < arrayNum.length && !existe; i++){
@@ -144,9 +144,7 @@ Ej: [10, 20, 50], [1, 2, 20, 24, 80], resultado: [1, 2, 10, 20, 20, 24, 50, 80] 
     }
     return existe;
     }
-    
-    
-    
+     
     public static void ej6(int[]arrayParaCargar){
         for(int i = 0; i < 10 ; i ++){
             int numero = (int)(Math.random()*20+1);
@@ -158,68 +156,98 @@ Ej: [10, 20, 50], [1, 2, 20, 24, 80], resultado: [1, 2, 10, 20, 20, 24, 50, 80] 
     
     }
     
-    
+    public static int posPalabraArray(String palabra, String[]arrayPalabras){
+        int posicion = -1;
+        for(int i = 0; i < arrayPalabras.length; i++){
+            if(arrayPalabras[i].equals(palabra)){
+                posicion = i;
+            }
+        }
+    return posicion;
+    }
 
-
-    public static void ej7(){
-    /*
-     7) “En la casa de Pinocho...todos cuentan hasta ocho:...pinuno, pindos, pintres, pincuatro, pincinco, 
-    pinseis, pinsiete, pinocho!.” Este tradicional cantito es el que usan los niños para elegir al azar uno de 
-    ellos en un grupo. Los niños se disponen en círculo y el responsable del canto, ubicado en el centro 
-    del círculo, va señalando consecutivamente a cada uno diciendo en voz alta una palabra del canto. 
-    Al que le toca la última palabra de la canción es el elegido. Se ingresará desde teclado una lista de 
-    nombres (entre 5 y 30), luego que se termina la lista se indica cuál va a cantar al centro y desde cuál 
-    se comienza. El programa debe informar a quién se elegirá. 
-    Ejemplo: 
-    Se ingresan: Nicolás Andrés Mariana Inés Marcelo Matías Mauricio Daniel. Mariana cantará y se 
-    comienza con Matías. El programa debe indicar que el elegido será Daniel. 
-        */
+    public static String ej7(){
     Scanner input = new Scanner(System.in);
     
+    //Pido al usuario que agregue la cantidad
     System.out.println("Ingrese la cantidad de nombres que juegan (Entre 5 y 30):");
     int cantidadNombres = input.nextInt();
+    input.nextLine(); // consume el salto de línea que quedó
     String [] nombresIngresados = new String[cantidadNombres];
     
+    // Usuario agrega los nombres necesarios
     for(int i = 0; i < nombresIngresados.length; i ++){
-        System.out.println("Ingrese el nombre numero:"+ i);
-        input.next();
+        System.out.println("Ingrese el nombre numero:"+ (i+1));
         nombresIngresados[i] = input.nextLine();
     }
     
     System.out.println("Ingrese el cantante");
-    String cantante = input.nextLine();
+    String nombreCantante = input.nextLine();
     
     System.out.println("Ingrese el nombre del inicio");
 
-    String inicio = input.nextLine();
+    String nombreInicio = input.nextLine();
     
+    int inicio = posPalabraArray(nombreInicio , nombresIngresados);
     
     int iterador = 0;
     
-    /*
-    for(int i = 0; i < nombresIngresados.length; i ++){
-        System.out.println(nombresIngresados[i] + " ");
-    }
-    */
-    
-    
-    String [] listaNombres = {"Nicolas" ,"Andrés", "Mariana", "Inés", "Marcelo", "Matías", "Mauricio", "Daniel", "Mariana", "Matías"};
-    /*
-    for(int i = 5; i < listaNombres.length; i++){
-        if(i+1 == listaNombres.length){
-            i = 0;
+    for(int i = 0 ; i < 17; i++){
+        if(iterador == nombresIngresados.length){
+            iterador = 0;
+        }else {
+            if(!nombresIngresados[iterador].equals(nombreCantante)){
+            iterador++;
+            }    
         }
-        
-        for(int j = 0; j < 8; j++){
-        
-        }
-        
     }
-    */
-    
-    
+  
+    System.out.println("El inicio es: " + inicio);    
+    System.out.println("El elemento iterador es: " + iterador);
+    String resultado = "El resultado es:" + nombresIngresados[iterador-1];
+    return resultado;
     }
 
+    public static int[] ej8(int[]cubo1){
+    
+    int[] arrayResultado = new int[cubo1.length];
+                     
+    for(int i = 0; i < cubo1.length; i++){
+        int min = Integer.MAX_VALUE;
+        int posMinimo = 0;
+        for(int j = 0; j < arrayResultado.length; j++){
+            if(cubo1[j] < min){
+                min = cubo1[j];   
+                posMinimo = j;
+            }     
+        }
+        arrayResultado[i] = min;
+        cubo1[posMinimo] = Integer.MAX_VALUE;
+    }
+    System.out.println(Arrays.toString(arrayResultado));
+    
+    return arrayResultado;
+    }
+    
+
+    public static boolean ej9Sort(int[] tarjetas){
+    Arrays.sort(tarjetas);
+    boolean puede = false;
+    for(int i = 0; i < tarjetas.length-2 && !puede; i++){    
+        if(tarjetas[i] == tarjetas[i + 1] - 1 && tarjetas[i] == tarjetas[i + 2] - 2){      
+            puede = true;
+        }       
+    }
+    return puede;
+    } 
+    
+    public static boolean ej9(int[] tarjetas){
+    
+    boolean puede = false;
+        
+        
+    return puede;
+    }
 }
 
 
