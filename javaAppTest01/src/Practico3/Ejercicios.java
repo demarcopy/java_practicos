@@ -5,12 +5,12 @@ import java.util.Arrays;
 public class Ejercicios {
     public static void main(String[] args){
         
-        int[][] nuevaMatriz = cargarMatriz(5,6);
-        int[][] nuevaMatriz2 = {{1,2,3}, {4,2,0}, {1,2,3}};
-        imprimirMatriz(nuevaMatriz);
+        //int[][] nuevaMatriz = cargarMatriz(5,6);
+        int[][] nuevaMatriz2 = {{0,1,0,0}, {1,1,1,0}, {0,1,0,0}, {1,1,0,0}};
+        imprimirMatriz(nuevaMatriz2);
         
         
-        System.out.println("El resultado es:" +  ej4(nuevaMatriz, 1,2));
+        System.out.println("El resultado es:" +  ej5(nuevaMatriz2));
     
     
     }
@@ -120,8 +120,7 @@ public class Ejercicios {
         
         return perfecta;
     }
-    
-    
+     
     public static boolean ej4(int[][] matrizCuadrada, int fila, int columna){
     
     int valor = matrizCuadrada[fila][columna];
@@ -177,5 +176,35 @@ public class Ejercicios {
     
     }
     
+    public static int ej5(int[][] mat){
     
+    int resultado = 0;
+    
+    for(int i = 0; i < mat.length; i ++){
+        for(int j = 0; j < mat[0].length; j++){
+           
+            try{
+                if(mat[i][j] == 1 && mat[i][j-1]==0){
+                    resultado += 1;
+                }
+                if(mat[i][j] == 1 && mat[i+1][j]==0){
+                    resultado += 1;
+                }
+                if(mat[i][j] == 1 && mat[i][j+1]==0){
+                    resultado += 1;
+                }
+                if(mat[i][j] == 1 && mat[i-1][j]==0){
+                    resultado += 1;
+                }            
+
+            }
+            catch(ArrayIndexOutOfBoundsException e){
+                resultado += 1;
+            }
+
+        }
+    System.out.println("La fila 1 es:" + resultado);       
+    }
+    return resultado;
+    }
 }
