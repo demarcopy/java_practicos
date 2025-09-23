@@ -5,14 +5,24 @@ import java.util.Arrays;
 
 public class p22409pn {
     public static void main(String[] args){
-    int[][] matriz = {
-        {4, 4, 6},
-        {6, 6, 6},
-    };
-
-    //cantImpar(matriz);
-    System.out.println(cantImpar(matriz));
+        int[][] mat = {
+            {  10,  2,  33},
+            { 2,  3,   5},
+            { 5,  2,   10},
+            {  1,  10,   0},
+            {  1,  2,   -2}
+        };
+        
+        imprimirMatriz(generar(mat));
+        
+        
     }
+
+   public static void imprimirMatriz(int[][] unaMatriz){
+      for(int i = 0 ; i < unaMatriz.length; i++){
+          System.out.println(Arrays.toString(unaMatriz[i]));
+      }      
+    } 
     
     
     public static String proceso(String[] listaTeclas, String texto){
@@ -53,7 +63,32 @@ public class p22409pn {
             }
         }
         return resultado;
-        
     }
+    
+    
+    public static int[][] generar(int[][] mat){
+        int[][]matResultado = new int[mat.length][mat[0].length];
+            
+        for(int j = 0; j < mat[0].length; j++){
+            int sumaColumna = 0;
+            for(int i = 0; i < mat.length; i++){
+                if(j==0){
+                    sumaColumna += mat[i][j];
+                }else{
+                    matResultado[i][j] = mat[i][j];
+                }
+            }
+            if(j==0){
+                for(int i = 0; i < matResultado.length; i++){
+                    matResultado[i][0] = sumaColumna;           
+                }
+            }
+        
+        }
+        return matResultado;
+    }
+
+    
+    
     
 }
