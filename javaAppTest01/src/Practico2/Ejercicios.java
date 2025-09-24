@@ -218,7 +218,6 @@ Ej: [10, 20, 50], [1, 2, 20, 24, 80], resultado: [1, 2, 10, 20, 20, 24, 50, 80] 
     return arrayResultado;
     }
     
-
     public static boolean ej9Sort(int[] tarjetas){
     Arrays.sort(tarjetas);
     boolean puede = false;

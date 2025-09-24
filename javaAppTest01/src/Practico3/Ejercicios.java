@@ -313,8 +313,6 @@ public class Ejercicios {
         return puntos;
         }
         
-    
-
     public static int puntajePosicion(int[][]mat, int fila, int col){
         int res;
         int filaDistancia = Math.min(fila, mat.length-1 - fila);
@@ -323,8 +321,7 @@ public class Ejercicios {
         res = distMenor+1;
         return res;
     }
-
-    
+  
     public static boolean ej8(int[][] mat){
     boolean reducida = true;
         for(int i = 0; i < mat.length && reducida; i++){

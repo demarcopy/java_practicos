@@ -1,12 +1,12 @@
 
 package Practico4;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Ejercicios {
     public static void main(String[]args){
-        
-        System.out.println(agregada("hola","hbola"));
+
     }
     
     public static void ej1(){
@@ -115,12 +115,121 @@ public class Ejercicios {
     }
 
     public static String mismaCantidad(String frase, String secuencia1, String secuencia2){
+     String retorno = "NO";
+
+     int cont1 = 0;
+     int cont2 = 0;
+
+     for (int i = frase.indexOf(secuencia1); i != -1; i = frase.indexOf(secuencia1, i +secuencia1.length())){
+        cont1++;
+     }
+     for (int i = frase.indexOf(secuencia2); i != -1; i = frase.indexOf(secuencia2, i + secuencia2.length())){
+        cont2++;
+     }
+     if (cont1 == cont2){
+     retorno = "SI";
+     }
+     return retorno;
+    }
     
+    public static String mismasLetras(String frase1, String frase2){
+        boolean existenTodas = true;
+        String retorno = "SI";
+        for(int i = 0; i < frase2.length()&& existenTodas; i++){
+            String letra = frase2.charAt(i) + "";
+            if(!frase1.contains(letra)){
+                existenTodas = false;
+            }
+        }
+    if(!existenTodas){
+        retorno = "NO";
+    }
+    return retorno;
+    }
+
+    public static String formatoMail(String correo){
+        String[] palabras = correo.split("@");
+        String primeraLetra = palabras[0].charAt(0) + "";
+        String ultimaLetra = palabras[0].charAt(palabras[0].length()-1) + "";
+        int cantAsteriscos = palabras[0].length()-2;
+        String resultado = primeraLetra; 
+        
+        for(int i = 0; i < cantAsteriscos; i++){
+            resultado = resultado + "*";
+        }
+        
+        resultado = resultado + ultimaLetra +"@" + palabras[1];
+            
+        return resultado;
         
     }
     
-    public static boolean inRange(String palabra, int largo){
-        return 
-    }
+    public static void Porcentajes(String codigo){
+        int contadorVocales = 0;
+        int contadorDigitos = 0;
+        String listaVocales = "aeiou";
+        String listaNumeros = "123456789";
+        double porcentajeVocales;
+        double porcentajeNumeros;
+        
+        for(int i = 0; i < codigo.length(); i++){
+            String letra = codigo.charAt(i) +"";
+            if(listaVocales.contains(letra.toLowerCase())){
+                contadorVocales++;
+            }
+            if(listaNumeros.contains(letra)){
+                contadorDigitos++;
+            }        
+        }
+        porcentajeVocales = (double) contadorVocales / codigo.length() * 100;
+        porcentajeNumeros = (double) contadorDigitos / codigo.length() * 100;
+
+       
+        System.out.println(porcentajeVocales + "%"+ " " + porcentajeNumeros+"%");
     
+    }
+
+    public static String caraAleatoria(){
+        int sumaCara = 0;
+        double porcentajeCara;
+        int sumaCruz = 0;
+        double porcentajeCruz;
+        String resultado;
+        for(int i = 0; i < 1000; i++){
+            //1 es cara - 0 cruz
+            int numero = (int)(Math.random()*2);
+            if(numero == 1){
+                sumaCara++;
+            }else{
+                sumaCruz++;
+            }  
+        }
+        
+        porcentajeCara = ((double)sumaCara / 1000) * 100;
+        porcentajeCruz = ((double)sumaCruz / 1000) * 100;
+        
+        resultado = "El porcentaje de cara es:" + porcentajeCara +"  " + "El porcentaje de cruz es:" + porcentajeCruz;
+        return resultado;
+    }
+
+    public static String raicesCuadratica(int a, int b, int c){
+    
+    String resultado;
+      
+    double discriminante = Math.pow(b, 2) - 4 * a * c;
+
+    if(discriminante < 0){
+        resultado = "Imaginario";
+    }else{
+        if(discriminante == 0){
+            resultado = "Una sola raiz";
+        }else{
+            resultado = "Dos raices";
+        }
+    }
+
+    return resultado;
+            
+            
+    }
 }
