@@ -1,10 +1,12 @@
 
 package Practico4;
 
+import java.util.Scanner;
+
 public class Ejercicios {
     public static void main(String[]args){
-
-
+        
+        System.out.println(agregada("hola","hbola"));
     }
     
     public static void ej1(){
@@ -42,21 +44,83 @@ public class Ejercicios {
 
     }
     
-    public static void ej3(String palabra, char letra){
+    public static void ej3(){
     
-    for(int i = 0 ; i < palabra.length(); i++){
+        Scanner in = new Scanner(System.in);
         
+        System.out.println("Ingrese una palabra:");
+        String palabra = in.nextLine();
+        System.out.println("Ingrese una letra:");
+        String letra = in.nextLine();
+
+                
+        int contador = 0;
+        for(int i = 0 ; i < palabra.length(); i++){
+            if( (""+palabra.charAt(i)).equals(letra)   ){
+                contador ++;
+            }
+
+        } 
+    System.out.println("La palabra tiene "+ contador + "de veces la letra" ); 
+    }
+    
+    public static void ej4(){
+        Scanner in = new Scanner(System.in);
         
-        if(palabra[i] == letra)
+        System.out.println("Ingrese una palabra con espacios");
+        String palabra = in.nextLine();
+        String resultado = "";
+        
+        for(int i = 0; i < palabra.length(); i++){
+            String letra = ""+palabra.charAt(i);
+            if(!letra.equals(" ")){
+                resultado = resultado + letra;
+            }            
+        }         
+        System.out.println(resultado);
+    }
+
+    public static void ej5(String palabraLarga){
+        int contadorA = 0;
+        int maximoContiguo = 0;
+        
+        for(int i = 0; i < palabraLarga.length(); i++){
+            char letra = palabraLarga.charAt(i);
+        
+            if(letra == 'A'){
+                contadorA++;
+                if(contadorA > maximoContiguo){
+                    maximoContiguo = contadorA;
+                }                
+            }else{
+                contadorA = 0;
+            }
+        }   
+        System.out.println("El maximo es" + maximoContiguo);
+    }
+
+    public static String agregada(String primera, String segunda){
+        String resultado = "";
+
+        for(int i = 0; i < segunda.length(); i++){
+            String letra = segunda.charAt(i) + "";
+            if(!primera.contains(letra)){
+                resultado = letra;
+            }
+      
+        }
+        return resultado;
+        
     
     }
-        
+
+    public static String mismaCantidad(String frase, String secuencia1, String secuencia2){
+    
         
     }
     
-    
-    
-    
-    
+    public static boolean inRange(String palabra, int largo){
+        return 
+    }
     
 }
