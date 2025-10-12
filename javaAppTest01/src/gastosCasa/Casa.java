@@ -1,6 +1,8 @@
 
 package gastosCasa;
 import java.util.ArrayList;
+import java.util.Comparator;
+
 
 public class Casa {
     private ArrayList<Gasto> listaDeGastos;
@@ -166,6 +168,13 @@ public class Casa {
 
     
     return existe;
+    }
+    
+ 
+    public ArrayList<Gasto> ordenar(){
+        Collections.sort(listaDeGastos, Comparator.comparing(Gasto::getMonto));
+        return this.getListaDeGastos();
+    
     }
     
     
