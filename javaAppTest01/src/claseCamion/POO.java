@@ -7,20 +7,20 @@ import java.util.Scanner;
 
 public class POO {
     public static void main(String[]args){
-        Camion c1 = new Camion();
-        c1.setChapa("");
-        c1.setCarga(1000);
-        
-        Camion c2 = new Camion();
-        c2.setChapa("");
-        c2.setCarga(2000);
-        
-        Camion c3 = new Camion("HDB230", 200,"Rojo");
-        
-        Camion c4 = new Camion();
-        c4.setCarga(200);
-        
-        
-        System.out.println("Camion c1 tiene chapa:" + c1.getChapa());
+
+    Camion c1 = new Camion ();
+    c1.setModelo(2004);
+    c1.setChapa("SAS1111");
+    c1.setCarga(1000);
+    //Metodo estatico
+    Camion.setAnio (2012);
+    
+    if (c1.leTocaRevision()) {
+    System.out.println("Al camion: "+c1+ " le toca revisión");
+    }
+    else {
+    System.out.println("Al camion: "+c1+ " no le toca revisión");
+    }
+ 
     }
 }

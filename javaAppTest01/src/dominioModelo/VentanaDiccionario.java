@@ -1,20 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package dominioModelo;
 
-/**
- *
- * @author Rodrigo
- */
 public class VentanaDiccionario extends javax.swing.JFrame {
-    private Diccionario modelo;
-    
-    
+    private Diccionario modelo; 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VentanaDiccionario.class.getName());
-
-    
+   
     //Atributo que tiene informacion del modelo
     public VentanaDiccionario(Diccionario unModelo){
         this.modelo = unModelo;

@@ -42,7 +42,7 @@ public class Diccionario {
         Iterator<String> it = this.getDiccionario().keySet().iterator();
         while(it.hasNext() && !encontre){
             String claveAux = it.next();
-            if(traduccion.equals(this.getDiccionario().get(clave))){
+            if(this.getDiccionario().get(claveAux).equals(traduccion)){
                encontre = true;
                clave = claveAux;
             }
