@@ -1,13 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Contador;
 
-/**
- *
- * @author Rodrigo
- */
+
 public class PruebaContador {
-    
+    public static void main(String[] args){
+        VistaVentanaContador v = new VistaVentanaContador();
+        v.setVisible(true);
+    }
 }

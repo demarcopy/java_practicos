@@ -28,21 +28,66 @@ public class VistaVentanaContador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        lblValor = new javax.swing.JLabel();
+        btnIncrementar = new javax.swing.JButton();
+        btnDecrementar = new javax.swing.JButton();
+        btnReset = new javax.swing.JButton();
+
+        jButton2.setText("+");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("+");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Ventana del Contador");
+        getContentPane().setLayout(null);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        lblValor.setText("----");
+        getContentPane().add(lblValor);
+        lblValor.setBounds(90, 130, 19, 16);
 
-        pack();
+        btnIncrementar.setText("+");
+        btnIncrementar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIncrementarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnIncrementar);
+        btnIncrementar.setBounds(270, 70, 23, 23);
+
+        btnDecrementar.setText("-");
+        getContentPane().add(btnDecrementar);
+        btnDecrementar.setBounds(270, 120, 23, 23);
+
+        btnReset.setText("RS");
+        getContentPane().add(btnReset);
+        btnReset.setBounds(270, 160, 72, 23);
+
+        setBounds(0, 0, 414, 307);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnIncrementarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncrementarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnIncrementarActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -70,5 +115,11 @@ public class VistaVentanaContador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDecrementar;
+    private javax.swing.JButton btnIncrementar;
+    private javax.swing.JButton btnReset;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel lblValor;
     // End of variables declaration//GEN-END:variables
 }
