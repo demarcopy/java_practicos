@@ -12,10 +12,15 @@ public class VistaVentanaContador extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VistaVentanaContador.class.getName());
 
-    /**
-     * Creates new form VistaVentanaContador
-     */
+    private ModeloContador modelo;
+
+    
     public VistaVentanaContador() {
+        initComponents();
+    }
+    
+    public VistaVentanaContador(ModeloContador unModelo){
+        this.modelo = unModelo;
         initComponents();
     }
 
@@ -30,10 +35,11 @@ public class VistaVentanaContador extends javax.swing.JFrame {
 
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        lblValor = new javax.swing.JLabel();
+        txtValor = new javax.swing.JLabel();
         btnIncrementar = new javax.swing.JButton();
         btnDecrementar = new javax.swing.JButton();
-        btnReset = new javax.swing.JButton();
+        btnResetear = new javax.swing.JButton();
+        lblValor = new javax.swing.JLabel();
 
         jButton2.setText("+");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -53,9 +59,9 @@ public class VistaVentanaContador extends javax.swing.JFrame {
         setTitle("Ventana del Contador");
         getContentPane().setLayout(null);
 
-        lblValor.setText("----");
-        getContentPane().add(lblValor);
-        lblValor.setBounds(90, 130, 19, 16);
+        txtValor.setText("----");
+        getContentPane().add(txtValor);
+        txtValor.setBounds(90, 130, 19, 16);
 
         btnIncrementar.setText("+");
         btnIncrementar.addActionListener(new java.awt.event.ActionListener() {
@@ -70,9 +76,13 @@ public class VistaVentanaContador extends javax.swing.JFrame {
         getContentPane().add(btnDecrementar);
         btnDecrementar.setBounds(270, 120, 23, 23);
 
-        btnReset.setText("RS");
-        getContentPane().add(btnReset);
-        btnReset.setBounds(270, 160, 72, 23);
+        btnResetear.setText("RS");
+        getContentPane().add(btnResetear);
+        btnResetear.setBounds(270, 160, 72, 23);
+
+        lblValor.setText("Valor");
+        getContentPane().add(lblValor);
+        lblValor.setBounds(40, 130, 27, 16);
 
         setBounds(0, 0, 414, 307);
     }// </editor-fold>//GEN-END:initComponents
@@ -117,9 +127,10 @@ public class VistaVentanaContador extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDecrementar;
     private javax.swing.JButton btnIncrementar;
-    private javax.swing.JButton btnReset;
+    private javax.swing.JButton btnResetear;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel lblValor;
+    private javax.swing.JLabel txtValor;
     // End of variables declaration//GEN-END:variables
 }
