@@ -8,40 +8,31 @@ import javax.swing.JButton;
 
 
 public class VentanaAMano extends JFrame{
+    JPanel p = new JPanel();
     JLabel etiqueta = new JLabel();
-    
     JButton botonUno = new JButton();
     JButton botonDos = new JButton();
-    JPanel p = new JPanel();
+
     
     public VentanaAMano(){
-        this.etiqueta.setText("---");
-        this.etiqueta.setBounds(80,40,120,80);
-        this.botonUno.addActionListener(new ClaseEscucha()){
-        public void actionPerformed(ActionEvent e){
-            etiqueta.setText("Dos");
-        }
-        });
-        
-        this.botonUno.setText("UNO");
-        this.botonUno.setBounds(270, 20, 90, 30);
-        this.botonDos.setText("DOS");
-        this.botonDos.setBounds(270, 60, 90, 30);
         p.setLayout(null);
         p.add(this.etiqueta);
         p.add(this.botonUno);
         p.add(this.botonDos);
     
+        this.etiqueta.setText("---");
+        this.etiqueta.setBounds(80,40,120,80);       
+        this.botonUno.setText("UNO");
+        this.botonUno.setBounds(270, 20, 90, 30);
+        this.botonDos.setText("DOS");
+        this.botonDos.setBounds(270, 60, 90, 30);
+        
+        this.setSize(400,200);
+        this.setContentPane(this.p);
+        this.setTitle("Ventana de prueba");
 
     }
-    
-    private class ClaseEscucha implements ActionListener{
-        public void actionPerformed(ActionEvent e){
-            etiqueta.setText("UNO");
-        }     
-    }    
-    
-    
+     
 
     
 }
