@@ -4,6 +4,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JButton;
+import java.awt.event.*;
+
 
 
 
@@ -30,7 +32,23 @@ public class VentanaAMano extends JFrame{
         this.setSize(400,200);
         this.setContentPane(this.p);
         this.setTitle("Ventana de prueba");
+        
+        //Logica de eventos
+        botonUno.addActionListener(new claseEscuchaBotonUno());
+        
+        botonDos.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                etiqueta.setText("Dos");
+            }
+        });
 
+    }
+    
+    private class claseEscuchaBotonUno implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            etiqueta.setText("Uno");
+        }
+    
     }
      
 
