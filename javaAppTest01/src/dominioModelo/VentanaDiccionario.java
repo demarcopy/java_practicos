@@ -1,6 +1,8 @@
 package dominioModelo;
+import java.util.Observer;
+import java.util.Observable;
 
-public class VentanaDiccionario extends javax.swing.JFrame {
+public class VentanaDiccionario extends javax.swing.JFrame implements Observer{
     private Diccionario modelo; 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VentanaDiccionario.class.getName());
    
@@ -9,6 +11,7 @@ public class VentanaDiccionario extends javax.swing.JFrame {
         this.modelo = unModelo;
         initComponents();
         objetoAPantalla();
+        this.modelo.addObserver(this);
     }
     
     public void objetoAPantalla(){
@@ -16,7 +19,10 @@ public class VentanaDiccionario extends javax.swing.JFrame {
         lstTraducciones.setListData(this.modelo.obtenerTraducciones());
         txtPalabra.setText("");
         txtTraduccion.setText("");
-
+    }
+    
+    public void update(Observable o, Object ob){
+        objetoAPantalla();
     }
     
     /**
@@ -192,7 +198,7 @@ public class VentanaDiccionario extends javax.swing.JFrame {
     private void lstPalabrasValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstPalabrasValueChanged
         // TODO add your handling code here:
         String palabra = (String)lstPalabras.getSelectedValue();
-        String clave = this.modelo.datTraduccion(palabra);
+        String clave = this.modelo.darTraduccion(palabra);
         txtPalabra.setText(palabra);
         txtTraduccion.setText(clave);
         lstTraducciones.setSelectedValue(clave,true);

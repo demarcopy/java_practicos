@@ -7,7 +7,9 @@ public class pruebaDiccionario {
         
         VentanaDiccionario ventana = new VentanaDiccionario(modelo);
         ventana.setVisible(true);
-        
+
+        VentanaDiccionario ventana1 = new VentanaDiccionario(modelo);
+        ventana1.setVisible(true);        
     }
     
 }

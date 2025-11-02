@@ -3,12 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Contador;
+import java.util.Observer;
+import java.util.Observable;
 
 /**
  *
  * @author Rodrigo
  */
-public class VistaVentanaContador extends javax.swing.JFrame {
+public class VistaVentanaContador extends javax.swing.JFrame implements Observer{
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VistaVentanaContador.class.getName());
 
@@ -22,8 +24,18 @@ public class VistaVentanaContador extends javax.swing.JFrame {
     public VistaVentanaContador(ModeloContador unModelo){
         this.modelo = unModelo;
         initComponents();
+        objetoAPantalla();
+        this.modelo.addObserver(this);
     }
 
+    public void update(Observable o, Object ob){
+        lblValor.setText(this.modelo.toString());
+    }
+    
+    public void objetoAPantalla(){
+        this.lblValor.setText(this.modelo.toString());
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,11 +47,14 @@ public class VistaVentanaContador extends javax.swing.JFrame {
 
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        panel = new javax.swing.JPanel();
         txtValor = new javax.swing.JLabel();
         btnIncrementar = new javax.swing.JButton();
         btnDecrementar = new javax.swing.JButton();
         btnResetear = new javax.swing.JButton();
         lblValor = new javax.swing.JLabel();
+        spnValor = new javax.swing.JSpinner();
+        btnSetearValor = new javax.swing.JButton();
 
         jButton2.setText("+");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -59,9 +74,11 @@ public class VistaVentanaContador extends javax.swing.JFrame {
         setTitle("Ventana del Contador");
         getContentPane().setLayout(null);
 
+        panel.setLayout(null);
+
         txtValor.setText("----");
-        getContentPane().add(txtValor);
-        txtValor.setBounds(90, 130, 19, 16);
+        panel.add(txtValor);
+        txtValor.setBounds(90, 100, 40, 30);
 
         btnIncrementar.setText("+");
         btnIncrementar.addActionListener(new java.awt.event.ActionListener() {
@@ -69,26 +86,52 @@ public class VistaVentanaContador extends javax.swing.JFrame {
                 btnIncrementarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnIncrementar);
-        btnIncrementar.setBounds(270, 70, 23, 23);
+        panel.add(btnIncrementar);
+        btnIncrementar.setBounds(270, 70, 80, 30);
 
         btnDecrementar.setText("-");
-        getContentPane().add(btnDecrementar);
-        btnDecrementar.setBounds(270, 120, 23, 23);
+        btnDecrementar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDecrementarActionPerformed(evt);
+            }
+        });
+        panel.add(btnDecrementar);
+        btnDecrementar.setBounds(270, 120, 80, 30);
 
         btnResetear.setText("RS");
-        getContentPane().add(btnResetear);
-        btnResetear.setBounds(270, 160, 72, 23);
+        btnResetear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetearActionPerformed(evt);
+            }
+        });
+        panel.add(btnResetear);
+        btnResetear.setBounds(270, 180, 80, 30);
 
         lblValor.setText("Valor");
-        getContentPane().add(lblValor);
-        lblValor.setBounds(40, 130, 27, 16);
+        panel.add(lblValor);
+        lblValor.setBounds(20, 100, 60, 30);
+        panel.add(spnValor);
+        spnValor.setBounds(20, 180, 64, 30);
+
+        btnSetearValor.setText("Setear Valor");
+        btnSetearValor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSetearValorActionPerformed(evt);
+            }
+        });
+        panel.add(btnSetearValor);
+        btnSetearValor.setBounds(90, 180, 100, 30);
+
+        getContentPane().add(panel);
+        panel.setBounds(20, 20, 350, 230);
 
         setBounds(0, 0, 414, 307);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIncrementarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncrementarActionPerformed
         // TODO add your handling code here:
+        modelo.incrementar();
+        objetoAPantalla();
     }//GEN-LAST:event_btnIncrementarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -98,6 +141,23 @@ public class VistaVentanaContador extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void btnDecrementarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDecrementarActionPerformed
+        modelo.decrementar();
+        objetoAPantalla();
+    }//GEN-LAST:event_btnDecrementarActionPerformed
+
+    private void btnResetearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetearActionPerformed
+        modelo.resetear();
+        objetoAPantalla();
+    }//GEN-LAST:event_btnResetearActionPerformed
+
+    private void btnSetearValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSetearValorActionPerformed
+        // TODO add your handling code here:
+        int valor = (Integer) spnValor.getValue();
+        this.modelo.setValor(valor);
+        objetoAPantalla();
+    }//GEN-LAST:event_btnSetearValorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,9 +188,12 @@ public class VistaVentanaContador extends javax.swing.JFrame {
     private javax.swing.JButton btnDecrementar;
     private javax.swing.JButton btnIncrementar;
     private javax.swing.JButton btnResetear;
+    private javax.swing.JButton btnSetearValor;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel lblValor;
+    private javax.swing.JPanel panel;
+    private javax.swing.JSpinner spnValor;
     private javax.swing.JLabel txtValor;
     // End of variables declaration//GEN-END:variables
 }

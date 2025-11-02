@@ -2,8 +2,9 @@
 package dominioModelo;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Observable;
 
-public class Diccionario {
+public class Diccionario extends Observable{
     private HashMap<String,String> diccionario;
     
     public Diccionario(){
@@ -16,6 +17,8 @@ public class Diccionario {
     
     public void agregarEntrada(String palabra, String traduccion){
         this.getDiccionario().put(palabra,traduccion); //Si tiene la clave la actualiza, si no la tiene la agrega.
+        setChanged();
+        notifyObservers();
     
     }
     
@@ -23,14 +26,13 @@ public class Diccionario {
         this.getDiccionario().remove(palabra);
     }
     
-    public String datTraduccion(String palabra){
+    public String darTraduccion(String palabra){
         return this.getDiccionario().get(palabra);
     }
     
     public String[] obtenerClaves() {
         return this.getDiccionario().keySet().toArray(new String[this.getDiccionario().size()]);
     }
-
     
     public String[] obtenerTraducciones() {
         return this.getDiccionario().values().toArray(new String[this.getDiccionario().size()]);

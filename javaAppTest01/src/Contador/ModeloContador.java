@@ -1,8 +1,9 @@
 package Contador;
 
 import java.util.Set;
+import java.util.Observable;
 
-public class ModeloContador {
+public class ModeloContador extends Observable {
     private int valor;
     
     public ModeloContador(int valor){
@@ -15,6 +16,8 @@ public class ModeloContador {
     
     public void setValor(int unValor){
         this.valor = unValor;
+        setChanged();
+        notifyObservers();
     }
 
     @Override
@@ -38,6 +41,6 @@ public class ModeloContador {
     public void resetear(){
         this.setValor(0);        
     }
-    
-    
+
+   
 }

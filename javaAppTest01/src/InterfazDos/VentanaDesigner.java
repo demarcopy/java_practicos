@@ -6,7 +6,7 @@ package InterfazDos;
 
 /**
  *
- * @author Rodrigo
+ * @author Administrador
  */
 public class VentanaDesigner extends javax.swing.JFrame {
     
@@ -28,31 +28,64 @@ public class VentanaDesigner extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        Panel = new javax.swing.JPanel();
-
-        jLabel1.setText("jLabel1");
+        panel = new javax.swing.JPanel();
+        lblValor = new javax.swing.JLabel();
+        btnUNO = new javax.swing.JButton();
+        btnDOS = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Ventana con disenio");
+        setTitle("Ventana Designer");
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentResized(java.awt.event.ComponentEvent evt) {
+                formComponentResized(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
-        javax.swing.GroupLayout PanelLayout = new javax.swing.GroupLayout(Panel);
-        Panel.setLayout(PanelLayout);
-        PanelLayout.setHorizontalGroup(
-            PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        PanelLayout.setVerticalGroup(
-            PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        panel.setLayout(null);
 
-        getContentPane().add(Panel);
-        Panel.setBounds(60, 70, 100, 100);
+        lblValor.setText("----");
+        panel.add(lblValor);
+        lblValor.setBounds(30, 80, 80, 30);
 
-        setBounds(0, 0, 423, 338);
+        btnUNO.setText("UNO");
+        btnUNO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUNOActionPerformed(evt);
+            }
+        });
+        panel.add(btnUNO);
+        btnUNO.setBounds(200, 30, 72, 23);
+
+        btnDOS.setText("DOS");
+        btnDOS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDOSActionPerformed(evt);
+            }
+        });
+        panel.add(btnDOS);
+        btnDOS.setBounds(200, 110, 72, 23);
+
+        getContentPane().add(panel);
+        panel.setBounds(30, 30, 320, 240);
+
+        setBounds(0, 0, 416, 309);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnUNOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUNOActionPerformed
+        // TODO add your handling code here:
+        this.lblValor.setText("UNO");
+    }//GEN-LAST:event_btnUNOActionPerformed
+
+    private void btnDOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDOSActionPerformed
+        // TODO add your handling code here:
+        this.lblValor.setText("DOS");
+    }//GEN-LAST:event_btnDOSActionPerformed
+
+    private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
+        // TODO add your handling code here:
+        this.lblValor.setText("Se movio");
+    }//GEN-LAST:event_formComponentResized
 
     /**
      * @param args the command line arguments
@@ -80,7 +113,9 @@ public class VentanaDesigner extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Panel;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnDOS;
+    private javax.swing.JButton btnUNO;
+    private javax.swing.JLabel lblValor;
+    private javax.swing.JPanel panel;
     // End of variables declaration//GEN-END:variables
 }

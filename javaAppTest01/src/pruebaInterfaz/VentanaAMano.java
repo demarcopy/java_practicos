@@ -33,6 +33,16 @@ public class VentanaAMano extends JFrame{
         this.setContentPane(this.p);
         this.setTitle("Ventana de prueba");
         
+        //Evento de la ventana
+        this.addComponentListener(new ComponentAdapter(){
+            @Override
+            public void componentResized(ComponentEvent e) {
+                etiqueta.setText("Se movio"); 
+            }
+             
+        });
+        
+        
         //Logica de eventos
         botonUno.addActionListener(new claseEscuchaBotonUno());
         
