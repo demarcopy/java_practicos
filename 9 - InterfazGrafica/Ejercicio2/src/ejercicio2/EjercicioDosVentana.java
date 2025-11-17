@@ -4,6 +4,7 @@
  */
 package ejercicio2;
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -48,6 +49,11 @@ public class EjercicioDosVentana extends javax.swing.JFrame {
         btnCreador.setBounds(90, 210, 220, 50);
 
         rdbRojo.setText("Rojo");
+        rdbRojo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbRojoActionPerformed(evt);
+            }
+        });
         getContentPane().add(rdbRojo);
         rdbRojo.setBounds(100, 70, 190, 50);
 
@@ -65,6 +71,7 @@ public class EjercicioDosVentana extends javax.swing.JFrame {
 
     private void rdbAzulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbAzulActionPerformed
         // TODO add your handling code here:
+        btnCreador.setForeground(Color.BLUE);
     }//GEN-LAST:event_rdbAzulActionPerformed
 
     private void btnCreadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreadorActionPerformed
@@ -73,6 +80,11 @@ public class EjercicioDosVentana extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnCreadorActionPerformed
+
+    private void rdbRojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbRojoActionPerformed
+        btnCreador.setForeground(Color.RED);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdbRojoActionPerformed
 
     /**
      * @param args the command line arguments
