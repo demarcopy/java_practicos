@@ -4,6 +4,8 @@
  */
 package ejercicio5;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Administrador
@@ -11,12 +13,18 @@ package ejercicio5;
 public class Ventana extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Ventana.class.getName());
+    ArrayList<String> lista;
 
     /**
      * Creates new form Ventana
      */
     public Ventana() {
         initComponents();
+        lista = new ArrayList<>();
+        lstValores.setListData(lista.toArray());
+        btnCircunferencia.setSelected(true);
+        
+
     }
 
     /**
@@ -28,17 +36,18 @@ public class Ventana extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        grupo = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         lbl1 = new javax.swing.JLabel();
-        radio = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        txtRadio = new javax.swing.JTextField();
+        btnCircunferencia = new javax.swing.JRadioButton();
+        btnArea = new javax.swing.JRadioButton();
+        btnCalcular = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtResultado = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        listResultados = new javax.swing.JList<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        lstValores = new javax.swing.JList();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -48,20 +57,27 @@ public class Ventana extends javax.swing.JFrame {
         lbl1.setText("Radio");
         jPanel1.add(lbl1);
         lbl1.setBounds(19, 24, 67, 26);
-        jPanel1.add(radio);
-        radio.setBounds(92, 26, 126, 22);
+        jPanel1.add(txtRadio);
+        txtRadio.setBounds(92, 26, 126, 22);
 
-        jRadioButton1.setText("Circunferencia");
-        jPanel1.add(jRadioButton1);
-        jRadioButton1.setBounds(487, 18, 170, 21);
+        grupo.add(btnCircunferencia);
+        btnCircunferencia.setText("Circunferencia");
+        jPanel1.add(btnCircunferencia);
+        btnCircunferencia.setBounds(487, 18, 170, 21);
 
-        jRadioButton2.setText("Area");
-        jPanel1.add(jRadioButton2);
-        jRadioButton2.setBounds(487, 45, 140, 21);
+        grupo.add(btnArea);
+        btnArea.setText("Area");
+        jPanel1.add(btnArea);
+        btnArea.setBounds(487, 45, 140, 21);
 
-        jButton1.setText("Calcular");
-        jPanel1.add(jButton1);
-        jButton1.setBounds(19, 87, 100, 30);
+        btnCalcular.setText("Calcular");
+        btnCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalcularActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCalcular);
+        btnCalcular.setBounds(19, 87, 100, 30);
 
         jLabel1.setText("Resultado");
         jPanel1.add(jLabel1);
@@ -71,23 +87,41 @@ public class Ventana extends javax.swing.JFrame {
 
         jLabel2.setText("Valores Ingresados");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(19, 172, 98, 16);
+        jLabel2.setBounds(19, 172, 180, 16);
 
-        listResultados.setModel(new javax.swing.AbstractListModel<String>() {
+        lstValores.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(listResultados);
+        jScrollPane2.setViewportView(lstValores);
 
-        jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(38, 206, 653, 146);
+        jPanel1.add(jScrollPane2);
+        jScrollPane2.setBounds(120, 220, 450, 146);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(60, 30, 840, 370);
 
         setBounds(0, 0, 1022, 463);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
+        // TODO add your handling code here:
+        double resultado;
+        int radio = Integer.parseInt(txtRadio.getText());
+        
+        if(btnCircunferencia.isSelected()){
+            resultado = 2*Math.PI*radio;
+            lista.add("Radio: "+radio+" Circunferencia: "+String.format("%.2f", resultado));        
+        
+        }else{
+            resultado = Math.PI*Math.pow(radio,2);
+            lista.add("Radio: "+radio+" Area: "+String.format("%.2f", resultado));        
+        }
+        txtResultado.setText(String.format("%.2f", resultado));   
+        lstValores.setListData(lista.toArray());        
+        
+    }//GEN-LAST:event_btnCalcularActionPerformed
 
     /**
      * @param args the command line arguments
@@ -115,16 +149,17 @@ public class Ventana extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JRadioButton btnArea;
+    private javax.swing.JButton btnCalcular;
+    private javax.swing.JRadioButton btnCircunferencia;
+    private javax.swing.ButtonGroup grupo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbl1;
-    private javax.swing.JList<String> listResultados;
-    private javax.swing.JTextField radio;
+    private javax.swing.JList lstValores;
+    private javax.swing.JTextField txtRadio;
     private javax.swing.JTextField txtResultado;
     // End of variables declaration//GEN-END:variables
 }
