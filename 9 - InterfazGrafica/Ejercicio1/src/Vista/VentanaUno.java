@@ -82,7 +82,9 @@ public class VentanaUno extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSalidaActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-
+        String texto = txtEntrada.getText();
+        
+        txtSalida.setText(texto);
 
 
         // TODO add your handling code here:
