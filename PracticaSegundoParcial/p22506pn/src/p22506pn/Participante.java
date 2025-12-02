@@ -8,7 +8,7 @@ package p22506pn;
  *
  * @author Administrador
  */
-public class Participante {
+public class Participante extends Persona{
     private String celular;
     private int departamento;
 
@@ -26,6 +26,11 @@ public class Participante {
 
     public void setDepartamento(int departamento) {
         this.departamento = departamento;
+    }
+    
+    @Override
+    public String toString(){
+        return this.getCelular();
     }
     
 }

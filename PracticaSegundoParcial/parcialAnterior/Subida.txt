@@ -1,0 +1,9 @@
+Nivel: 0Edad: 8 0 Edad: 9 0 Edad: 10 0 Edad: 11 0 Edad: 12 0 Edad: 13 0 Edad: 14 0 Edad: 15 0 Edad: 16 0 Edad: 17 0 Edad: 18 0 
+Nivel: 1Edad: 8 1 Edad: 9 1 Edad: 10 0 Edad: 11 0 Edad: 12 0 Edad: 13 0 Edad: 14 0 Edad: 15 0 Edad: 16 0 Edad: 17 0 Edad: 18 0 
+Nivel: 2Edad: 8 0 Edad: 9 1 Edad: 10 0 Edad: 11 1 Edad: 12 0 Edad: 13 0 Edad: 14 0 Edad: 15 0 Edad: 16 0 Edad: 17 0 Edad: 18 0 
+Nivel: 3Edad: 8 0 Edad: 9 0 Edad: 10 0 Edad: 11 1 Edad: 12 1 Edad: 13 0 Edad: 14 0 Edad: 15 0 Edad: 16 0 Edad: 17 0 Edad: 18 0 
+Nivel: 4Edad: 8 0 Edad: 9 0 Edad: 10 0 Edad: 11 0 Edad: 12 0 Edad: 13 1 Edad: 14 0 Edad: 15 0 Edad: 16 0 Edad: 17 0 Edad: 18 0 
+Nivel: 5Edad: 8 0 Edad: 9 0 Edad: 10 1 Edad: 11 0 Edad: 12 1 Edad: 13 0 Edad: 14 0 Edad: 15 0 Edad: 16 0 Edad: 17 0 Edad: 18 0 
+Nivel: 6Edad: 8 0 Edad: 9 0 Edad: 10 0 Edad: 11 0 Edad: 12 0 Edad: 13 0 Edad: 14 0 Edad: 15 1 Edad: 16 1 Edad: 17 0 Edad: 18 0 
+Nivel: 7Edad: 8 0 Edad: 9 0 Edad: 10 0 Edad: 11 0 Edad: 12 0 Edad: 13 0 Edad: 14 1 Edad: 15 0 Edad: 16 0 Edad: 17 0 Edad: 18 0 
+Nivel: 8Edad: 8 0 Edad: 9 0 Edad: 10 0 Edad: 11 0 Edad: 12 0 Edad: 13 0 Edad: 14 0 Edad: 15 0 Edad: 16 0 Edad: 17 0 Edad: 18 1 

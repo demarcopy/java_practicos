@@ -8,7 +8,7 @@ package p22506pn;
  *
  * @author Administrador
  */
-public class Juez {
+public class Juez extends Persona{
     private String mail;
 
     public String getMail() {
@@ -17,6 +17,11 @@ public class Juez {
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+    
+    @Override
+    public String toString(){
+        return this.getNombre();
     }
     
 }

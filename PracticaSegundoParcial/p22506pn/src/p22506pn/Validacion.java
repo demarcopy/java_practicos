@@ -29,11 +29,11 @@ public class Validacion {
         this.foto = foto;
     }
 
-    public String getText() {
+    public String getTexto() {
         return text;
     }
 
-    public void setText(String text) {
+    public void setTexto(String text) {
         this.text = text;
     }
 }
