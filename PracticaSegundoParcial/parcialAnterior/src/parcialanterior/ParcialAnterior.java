@@ -5,9 +5,7 @@ package parcialanterior;
 public class ParcialAnterior {
 
 
-    public static void main(String[] args) {
-        proceso();
-    }
+
     
     
     public static void proceso(){
@@ -26,7 +24,7 @@ public class ParcialAnterior {
             }
         }
         
-        for(int i = 0; i < matResultado.length; i++){
+        for(int i = 1; i < matResultado.length; i++){
             String lineaGrabar =  "Nivel: " + i;
             for(int j = 8; j < matResultado[0].length; j++){
                 lineaGrabar = lineaGrabar + "Edad: " + j +" " + matResultado[i][j] + " ";    
