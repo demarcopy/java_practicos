@@ -1,0 +1,10 @@
+@ Tejido de prueba para la máquina eléctrica
+@ Líneas de comentario que deben ignorarse
+f#3#1#A#4#2#B#2#6#A
+f#5#3#C#2#1#D
+f#1#4#B#1#4#A#1#4#D
+f#10#2#A
+f#2#5#D#3#6#C#1#1#A
+@ Otra línea de comentario
+f#4#3#B#4#3#B#4#3#B
+f#1#6#D#1#6#D#1#6#D#1#6#D
